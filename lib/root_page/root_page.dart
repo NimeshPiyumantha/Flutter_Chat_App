@@ -7,11 +7,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        fontFamily: "OpenSans",
+        primaryColor: const Color(0xFF075E54),
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: const Color(0xFF128C7E),
+        ),
       ),
+      debugShowCheckedModeBanner: false,
       home: const HomePageView(),
     );
   }
