@@ -23,6 +23,7 @@ class _HomePageViewState extends State<HomePageView>
       appBar: AppBar(
         title: const Text('WhatsApp Clone'),
         actions: [
+          IconButton(icon: const Icon(Icons.camera_alt), onPressed: () {}),
           IconButton(icon: const Icon(Icons.search), onPressed: () {}),
           IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
         ],
@@ -30,7 +31,7 @@ class _HomePageViewState extends State<HomePageView>
           controller: _controller,
           tabs: const [
             Tab(
-              icon: Icon(Icons.camera_alt),
+              icon: Icon(Icons.people_alt),
             ),
             Tab(
               text: "CHATS",
@@ -47,7 +48,7 @@ class _HomePageViewState extends State<HomePageView>
       body: TabBarView(
         controller: _controller,
         children: const [
-          Text("Camera"),
+          Text("Community"),
           Text("Chats"),
           Text("Status"),
           Text("Calls"),
