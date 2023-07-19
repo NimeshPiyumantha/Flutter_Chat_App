@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/pages/chat_page.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({super.key});
@@ -57,6 +58,7 @@ class _HomePageViewState extends State<HomePageView>
         ],
         bottom: TabBar(
           controller: _controller,
+          indicatorColor: Colors.white,
           tabs: const [
             Tab(
               icon: Icon(Icons.people_alt),
@@ -77,7 +79,7 @@ class _HomePageViewState extends State<HomePageView>
         controller: _controller,
         children: const [
           Text("Community"),
-          Text("Chats"),
+          ChatPage(),
           Text("Status"),
           Text("Calls"),
         ],
