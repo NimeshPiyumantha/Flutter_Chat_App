@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/customUI/custom_call_card.dart';
 
 class CallsPage extends StatefulWidget {
   const CallsPage({super.key});
@@ -14,6 +15,11 @@ class _CallsPageState extends State<CallsPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add_ic_call_rounded),
+      ),
+      body: ListView(
+        children: const [
+          CustomCallCard(),
+        ],
       ),
     );
   }
