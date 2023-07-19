@@ -25,30 +25,35 @@ class _HomePageViewState extends State<HomePageView>
         actions: [
           IconButton(icon: const Icon(Icons.camera_alt), onPressed: () {}),
           IconButton(icon: const Icon(Icons.search), onPressed: () {}),
-          PopupMenuButton<String>(itemBuilder: (BuildContext context) {
-            return [
-              const PopupMenuItem(
-                value: "New group",
-                child: Text("New group"),
-              ),
-              const PopupMenuItem(
-                value: "New broadcast",
-                child: Text("New broadcast"),
-              ),
-              const PopupMenuItem(
-                value: "Linked devices",
-                child: Text("Linked devices"),
-              ),
-              const PopupMenuItem(
-                value: "Starred masseges",
-                child: Text("Starred masseges"),
-              ),
-              const PopupMenuItem(
-                value: "Settings",
-                child: Text("Settings"),
-              ),
-            ];
-          }),
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                const PopupMenuItem(
+                  value: "New group",
+                  child: Text("New group"),
+                ),
+                const PopupMenuItem(
+                  value: "New broadcast",
+                  child: Text("New broadcast"),
+                ),
+                const PopupMenuItem(
+                  value: "Linked devices",
+                  child: Text("Linked devices"),
+                ),
+                const PopupMenuItem(
+                  value: "Starred masseges",
+                  child: Text("Starred masseges"),
+                ),
+                const PopupMenuItem(
+                  value: "Settings",
+                  child: Text("Settings"),
+                ),
+              ];
+            },
+          ),
         ],
         bottom: TabBar(
           controller: _controller,
