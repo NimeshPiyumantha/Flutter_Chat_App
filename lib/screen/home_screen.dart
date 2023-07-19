@@ -44,7 +44,15 @@ class _HomePageViewState extends State<HomePageView>
           ],
         ),
       ),
-      
+      body: TabBarView(
+        controller: _controller,
+        children: const [
+          Text("Camera"),
+          Text("Chats"),
+          Text("Status"),
+          Text("Calls"),
+        ],
+      ),
     );
   }
 }
