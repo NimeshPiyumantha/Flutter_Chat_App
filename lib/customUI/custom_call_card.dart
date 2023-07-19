@@ -1,11 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class CustomCallCard extends StatelessWidget {
+  final String dp;
   final String title;
   final String arrow;
-  final int color; // Change the type to int for ARGB color value
+  final int color;
   final String time;
   final String icon;
 
@@ -16,12 +15,14 @@ class CustomCallCard extends StatelessWidget {
     required this.color,
     required this.time,
     required this.icon,
+    required this.dp,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const CircleAvatar(
+      leading: CircleAvatar(
+        backgroundImage: AssetImage(dp),
         radius: 30,
       ),
       title: Text(
