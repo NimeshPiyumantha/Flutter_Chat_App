@@ -48,7 +48,27 @@ class _CallsPageState extends State<CallsPage> {
             height: 3,
           ),
           const Divider(),
-          const CustomCallCard(),
+          const CustomCallCard(
+            title: 'Niemsh',
+            arrow: 'arrow_outward_rounded',
+            color: 0xFF32B99C,
+            time: '28 minutes ago',
+            icon: 'call',
+          ),
+          const CustomCallCard(
+            title: 'Niemsh',
+            arrow: 'arrow_outward_rounded',
+            color: 0xFF32B99C,
+            time: '28 minutes ago',
+            icon: 'call',
+          ),
+          const CustomCallCard(
+            title: 'Sandun',
+            arrow: 'arrow_inward_rounded',
+            color: 0xFFCA2F28,
+            time: '24 minutes ago',
+            icon: 'video_call',
+          ),
         ],
       ),
     );

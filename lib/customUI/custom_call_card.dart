@@ -1,32 +1,91 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CustomCallCard extends StatelessWidget {
-  const CustomCallCard({super.key});
+  final String title;
+  final String arrow;
+  final int color; // Change the type to int for ARGB color value
+  final String time;
+  final String icon;
+
+  const CustomCallCard({
+    Key? key,
+    required this.title,
+    required this.arrow,
+    required this.color,
+    required this.time,
+    required this.icon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 50, 185, 156),
-        onPressed: () {},
-        child: Transform.rotate(
-          angle: 135 * 3.1415927 / 180,
-          child: const Icon(Icons.link_rounded),
-        ),
+      leading: const CircleAvatar(
+        radius: 30,
       ),
-      title: const Text(
-        "Create call link",
-        style: TextStyle(
+      title: Text(
+        title,
+        style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
       ),
-      subtitle: const Text(
-        "Share a link for your WhatsApp call",
-        style: TextStyle(
-          fontSize: 13,
-        ),
+      subtitle: Row(
+        children: [
+          _getIconArrowWidget(), // Get the icon widget based on the arrow string and color
+          const SizedBox(
+            width: 3,
+          ),
+          Text(
+            time,
+            style: const TextStyle(
+              fontSize: 13,
+            ),
+          ),
+        ],
       ),
+      trailing: _getIconWidget(),
+    );
+  }
+
+  Widget _getIconArrowWidget() {
+    switch (arrow) {
+      case 'arrow_outward_rounded':
+        return _getColoredIcon(Icons.arrow_outward_rounded);
+      case 'arrow_inward_rounded':
+        return Transform.rotate(
+          angle: 180 * 3.1415927 / 180,
+          child: _getColoredIcon(Icons.arrow_outward_rounded),
+        );
+      default:
+        return _getColoredIcon(Icons.arrow_outward_rounded);
+    }
+  }
+
+  Widget _getIconWidget() {
+    switch (icon) {
+      case 'call':
+        return const Icon(
+          Icons.call,
+          color: Color(0xFF32B99C),
+          size: 28,
+        );
+      case 'video_call':
+        return const Icon(
+          Icons.videocam,
+          color: Color(0xFF32B99C),
+          size: 28,
+        );
+      default:
+        return const Icon(Icons.phone);
+    }
+  }
+
+  Widget _getColoredIcon(IconData icon) {
+    return Icon(
+      icon,
+      color: Color(color),
     );
   }
 }
