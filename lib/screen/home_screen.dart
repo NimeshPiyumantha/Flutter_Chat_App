@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/pages/chat_page.dart';
+import 'package:flutter_chat_app/pages/status_page.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({super.key});
@@ -80,7 +81,7 @@ class _HomePageViewState extends State<HomePageView>
         children: const [
           Text("Community"),
           ChatPage(),
-          Text("Status"),
+          StatusPage(),
           Text("Calls"),
         ],
       ),
