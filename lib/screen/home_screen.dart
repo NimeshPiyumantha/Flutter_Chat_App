@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/pages/calls_page.dart';
 import 'package:flutter_chat_app/pages/chat_page.dart';
 import 'package:flutter_chat_app/pages/status_page.dart';
 
@@ -82,7 +83,7 @@ class _HomePageViewState extends State<HomePageView>
           Text("Community"),
           ChatPage(),
           StatusPage(),
-          Text("Calls"),
+          CallsPage(),
         ],
       ),
     );
