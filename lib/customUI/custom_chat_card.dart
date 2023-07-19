@@ -7,6 +7,7 @@ class CustomChatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ListTile(
       leading: CircleAvatar(
+        backgroundImage: AssetImage('assets/images/boyOne.png'),
         radius: 30,
       ),
       title: Text(
