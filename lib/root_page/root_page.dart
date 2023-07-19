@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/screen/home_screen.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF075E54),
         colorScheme: ColorScheme.fromSwatch().copyWith(
           secondary: const Color(0xFF128C7E),
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor:
+              Color(0xFF075E54), // Set the app bar background color
         ),
       ),
       debugShowCheckedModeBanner: false,
