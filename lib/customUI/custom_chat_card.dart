@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/model/chat_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomChatCard extends StatelessWidget {
-  const CustomChatCard({super.key});
+  const CustomChatCard({super.key, required this.chatModel});
+  final ChatModel chatModel;
 
   @override
   Widget build(BuildContext context) {
@@ -15,34 +17,34 @@ class CustomChatCard extends StatelessWidget {
               radius: 30,
               backgroundColor: Colors.blueGrey,
               child: SvgPicture.asset(
-                "assets/images/groups_black_36dp.svg",
+             chatModel.isGroup ? "assets/images/groups.svg": "assets/images/person.svg",
                 height: 37,
                 width: 37,
                 color: Colors.white,
               ),
             ),
-            title: const Text(
-              "Dev Stack",
-              style: TextStyle(
+            title: Text(
+              chatModel.name,
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            subtitle: const Row(
+            subtitle: Row(
               children: [
-                Icon(Icons.done_all),
-                SizedBox(
+                const Icon(Icons.done_all),
+                const SizedBox(
                   width: 3,
                 ),
                 Text(
-                  "Hi dev Stack",
-                  style: TextStyle(
+                  chatModel.currentMessage,
+                  style: const TextStyle(
                     fontSize: 13,
                   ),
                 ),
               ],
             ),
-            trailing: const Text('18:04'),
+            trailing: Text(chatModel.time),
           ),
           const Padding(
             padding: EdgeInsets.only(right: 20, left: 80),
