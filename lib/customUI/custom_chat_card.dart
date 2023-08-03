@@ -1,23 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomChatCard extends StatelessWidget {
   const CustomChatCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const ListTile(
+    return ListTile(
       leading: CircleAvatar(
-        backgroundImage: AssetImage('assets/images/boyOne.png'),
         radius: 30,
+        backgroundColor: Colors.blueGrey,
+        child: SvgPicture.asset(
+          "assets/images/groups_black_36dp.svg",
+          height: 38,
+          width: 38,
+          color: Colors.white,
+        ),
       ),
-      title: Text(
+      title: const Text(
         "Dev Stack",
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
       ),
-      subtitle: Row(
+      subtitle: const Row(
         children: [
           Icon(Icons.done_all),
           SizedBox(
@@ -31,7 +38,7 @@ class CustomChatCard extends StatelessWidget {
           ),
         ],
       ),
-      trailing: Text('18:04'),
+      trailing: const Text('18:04'),
     );
   }
 }
