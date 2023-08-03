@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/model/chat_model.dart';
+import 'package:flutter_chat_app/screen/Individual_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomChatCard extends StatelessWidget {
@@ -9,7 +10,14 @@ class CustomChatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => IndividualPage(chatModel: chatModel),
+          ),
+        );
+      },
       child: Column(
         children: [
           ListTile(
@@ -17,7 +25,9 @@ class CustomChatCard extends StatelessWidget {
               radius: 30,
               backgroundColor: Colors.blueGrey,
               child: SvgPicture.asset(
-             chatModel.isGroup ? "assets/images/groups.svg": "assets/images/person.svg",
+                chatModel.isGroup
+                    ? "assets/images/groups.svg"
+                    : "assets/images/person.svg",
                 height: 37,
                 width: 37,
                 color: Colors.white,
