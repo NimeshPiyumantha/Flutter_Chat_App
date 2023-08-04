@@ -1,6 +1,9 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/model/chat_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:some_package_name/emoji_picker.dart';
+
 
 class IndividualPage extends StatefulWidget {
   const IndividualPage({super.key, required this.chatModel});
@@ -120,71 +123,76 @@ class _IndividualPageState extends State<IndividualPage> {
             ListView(),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Row(
+              child: Column(
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width - 60,
-                    child: Card(
-                      margin: const EdgeInsets.only(
-                        left: 2,
-                        right: 2,
-                        bottom: 8,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          25,
-                        ),
-                      ),
-                      child: TextFormField(
-                        textAlignVertical: TextAlignVertical.center,
-                        keyboardType: TextInputType.multiline,
-                        maxLines: 5,
-                        minLines: 1,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Type a message",
-                          prefixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.emoji_emotions,
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width - 60,
+                        child: Card(
+                          margin: const EdgeInsets.only(
+                            left: 2,
+                            right: 2,
+                            bottom: 8,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              25,
                             ),
                           ),
-                          suffixIcon: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
+                          child: TextFormField(
+                            textAlignVertical: TextAlignVertical.center,
+                            keyboardType: TextInputType.multiline,
+                            maxLines: 5,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Type a message",
+                              prefixIcon: IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.attach_file),
+                                icon: const Icon(
+                                  Icons.emoji_emotions,
+                                ),
                               ),
-                              IconButton(
-                                onPressed: () {},
-                                icon: const Icon(Icons.camera_alt),
+                              suffixIcon: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.attach_file),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.camera_alt),
+                                  ),
+                                ],
                               ),
-                            ],
+                              contentPadding: const EdgeInsets.all(12),
+                            ),
                           ),
-                          contentPadding: const EdgeInsets.all(12),
                         ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 8,
-                      right: 5,
-                      left: 2,
-                    ),
-                    child: CircleAvatar(
-                      backgroundColor: const Color(0xFF128C7E),
-                      radius: 25,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.mic,
-                          color: Colors.white,
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: 8,
+                          right: 5,
+                          left: 2,
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: const Color(0xFF128C7E),
+                          radius: 25,
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.mic,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
+                  emojiSelect(),
                 ],
               ),
             ),
@@ -192,5 +200,15 @@ class _IndividualPageState extends State<IndividualPage> {
         ),
       ),
     );
+  }
+
+  Widget emojiSelect() {
+    return EmojiPicker(
+        rows: 3,
+        columns: 7,
+        onEmojiSelected: (emoji, category) {
+          print(emoji);
+          setState(() {});
+        });
   }
 }
