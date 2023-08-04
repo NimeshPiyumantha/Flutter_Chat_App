@@ -10,12 +10,13 @@ class ChatApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "OpenSans",
         primaryColor: const Color(0xFF075E54),
+        hintColor: const Color(0xFF128C7E),
         colorScheme: ColorScheme.fromSwatch().copyWith(
           secondary: const Color(0xFF128C7E),
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor:
-              Color(0xFF075E54), // Set the app bar background color
+              Color(0xFF075E54),
         ),
       ),
       debugShowCheckedModeBanner: false,

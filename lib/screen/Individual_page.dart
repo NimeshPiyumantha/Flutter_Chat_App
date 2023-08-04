@@ -14,6 +14,7 @@ class _IndividualPageState extends State<IndividualPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         leadingWidth: 70,
         titleSpacing: 0,
@@ -110,6 +111,85 @@ class _IndividualPageState extends State<IndividualPage> {
             },
           ),
         ],
+      ),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+            ListView(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 60,
+                    child: Card(
+                      margin: const EdgeInsets.only(
+                        left: 2,
+                        right: 2,
+                        bottom: 8,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          25,
+                        ),
+                      ),
+                      child: TextFormField(
+                        textAlignVertical: TextAlignVertical.center,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: 5,
+                        minLines: 1,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Type a message",
+                          prefixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.emoji_emotions,
+                            ),
+                          ),
+                          suffixIcon: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.attach_file),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.camera_alt),
+                              ),
+                            ],
+                          ),
+                          contentPadding: const EdgeInsets.all(12),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 8,
+                      right: 5,
+                      left: 2,
+                    ),
+                    child: CircleAvatar(
+                      backgroundColor: const Color(0xFF128C7E),
+                      radius: 25,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.mic,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
