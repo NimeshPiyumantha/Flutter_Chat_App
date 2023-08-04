@@ -43,24 +43,27 @@ class _IndividualPageState extends State<IndividualPage> {
             ],
           ),
         ),
-        title: Container(
-          margin: const EdgeInsets.all(5),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.chatModel.name,
-                style: const TextStyle(
-                  fontSize: 19,
-                  fontWeight: FontWeight.bold,
+        title: InkWell(
+          onTap: () {},
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.chatModel.name,
+                  style: const TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const Text(
-                "Last seen today at 12:05",
-                style: TextStyle(fontSize: 13),
-              ),
-            ],
+                const Text(
+                  "Last seen today at 12:05",
+                  style: TextStyle(fontSize: 13),
+                ),
+              ],
+            ),
           ),
         ),
         actions: [
