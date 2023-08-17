@@ -25,7 +25,7 @@ class CustomChatCard extends StatelessWidget {
               radius: 30,
               backgroundColor: Colors.blueGrey,
               child: SvgPicture.asset(
-                chatModel.isGroup
+                chatModel.isGroup!
                     ? "assets/images/groups.svg"
                     : "assets/images/person.svg",
                 height: 37,
@@ -34,7 +34,7 @@ class CustomChatCard extends StatelessWidget {
               ),
             ),
             title: Text(
-              chatModel.name,
+              chatModel.name!,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -47,14 +47,14 @@ class CustomChatCard extends StatelessWidget {
                   width: 3,
                 ),
                 Text(
-                  chatModel.currentMessage,
+                  chatModel.currentMessage!,
                   style: const TextStyle(
                     fontSize: 13,
                   ),
                 ),
               ],
             ),
-            trailing: Text(chatModel.time),
+            trailing: Text(chatModel.time!),
           ),
           const Padding(
             padding: EdgeInsets.only(right: 20, left: 80),
