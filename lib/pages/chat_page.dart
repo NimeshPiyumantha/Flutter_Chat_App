@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/customUI/custom_chat_card.dart';
 
 import '../model/chat_model.dart';
+import '../screen/select_content.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -53,7 +54,14 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (builder) => const SelectContact(),
+            ),
+          );
+        },
         child: const Icon(Icons.chat),
       ),
       body: ListView.builder(
