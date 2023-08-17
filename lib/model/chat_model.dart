@@ -5,7 +5,7 @@ class ChatModel {
   final String? time;
   final String? currentMessage;
   final String? status;
-  late final bool select;
+  bool select = false;
   final int? id;
 
   ChatModel({
