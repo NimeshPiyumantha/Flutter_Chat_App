@@ -69,7 +69,7 @@ class _CreateGroupState extends State<CreateGroup> {
               itemBuilder: (context, index) {
                 if (index == 0) {
                   return Container(
-                    height: groupmember.length > 0 ? 90 : 10,
+                    height: groupmember.isNotEmpty ? 90 : 10,
                   );
                 }
                 return InkWell(
@@ -89,7 +89,7 @@ class _CreateGroupState extends State<CreateGroup> {
                   ),
                 );
               }),
-          groupmember.length > 0
+          groupmember.isNotEmpty
               ? Align(
                   alignment: Alignment.topCenter,
                   child: Column(
