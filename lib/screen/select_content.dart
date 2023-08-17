@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/customUI/contact_card.dart';
 
 class SelectContact extends StatefulWidget {
   const SelectContact({super.key});
@@ -32,6 +33,37 @@ class _SelectContactState extends State<SelectContact> {
             onPressed: () {},
             icon: const Icon(Icons.search, size: 26),
           ),
+          PopupMenuButton<String>(
+            padding: const EdgeInsets.all(0),
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                const PopupMenuItem(
+                  value: "Invite a friend",
+                  child: Text("Invite a friend"),
+                ),
+                const PopupMenuItem(
+                  value: "Contacts",
+                  child: Text("Contacts"),
+                ),
+                const PopupMenuItem(
+                  value: "Refresh",
+                  child: Text("Refresh"),
+                ),
+                const PopupMenuItem(
+                  value: "Help",
+                  child: Text("Help"),
+                ),
+              ];
+            },
+          ),
+        ],
+      ),
+      body: ListView(
+        children: const [
+          ContactCard(),
         ],
       ),
     );
